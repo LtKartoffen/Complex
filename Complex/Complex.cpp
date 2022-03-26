@@ -1,24 +1,24 @@
-#include "Complex.h"
+#include "complex0.h"
 
-Complex::Complex()
+complex::complex()
 {
 	real = imagine = 0;
 }
-Complex::Complex(double a, double b)
+complex::complex(double a, double b)
 {
 	real = a;
 	imagine = b;
 }
-Complex::~Complex()
+complex::~complex()
 {
 }
 
-std::ostream& operator<<(std::ostream& os, const Complex& num)
+std::ostream& operator<<(std::ostream& os, const complex& num)
 {
 	os << "(" << num.real << ", " << num.imagine << ")";
 	return os;
 }
-std::istream& operator>>(std::istream& is, Complex& num)
+std::istream& operator>>(std::istream& is, complex& num)
 {
 	std::cout << "real: ";
 	is >> num.real;
@@ -28,27 +28,27 @@ std::istream& operator>>(std::istream& is, Complex& num)
 }
 
 //operators
-Complex Complex::operator+(const Complex& b) const
+complex complex::operator+(const complex& b) const
 {
-	return Complex(real + b.real, imagine + b.imagine);
+	return complex(real + b.real, imagine + b.imagine);
 }
-Complex Complex::operator-(const Complex& b) const
+complex complex::operator-(const complex& b) const
 {
-	return Complex(real - b.real, imagine - b.imagine);
+	return complex(real - b.real, imagine - b.imagine);
 }
-Complex Complex::operator-() const
+complex complex::operator-() const
 {
-	return Complex(real, -imagine);
+	return complex(real, -imagine);
 }
-Complex Complex::operator*(double n) const
+complex complex::operator*(double n) const
 {
-	return Complex(n * real, n * imagine);
+	return complex(n * real, n * imagine);
 }
-Complex operator*(double n, const Complex& b)
+complex operator*(double n, const complex& b)
 {
 	return b * n;
 }
-Complex Complex::operator*(const Complex& b) const
+complex complex::operator*(const complex& b) const
 {
-	return Complex(real * b.real - imagine * b.imagine, real * b.imagine + imagine * b.real);
+	return complex(real * b.real - imagine * b.imagine, real * b.imagine + imagine * b.real);
 }
